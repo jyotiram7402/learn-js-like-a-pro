@@ -1,4 +1,4 @@
-# Learn JS Pro 🚀
+# Learn JS Like a Pro 🚀
 
 Welcome to **Learn JS Pro** – your go-to repository for mastering JavaScript from fundamentals to advanced concepts! Whether you're a beginner or an experienced developer, this repo provides structured learning materials, hands-on projects, and best practices to level up your JavaScript skills.  
 
