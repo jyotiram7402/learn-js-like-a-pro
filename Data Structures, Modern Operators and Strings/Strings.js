@@ -1,115 +1,176 @@
-/**
- * =====================================================
- * Strings in JavaScript - A Detailed Explanation
- * =====================================================
- * Strings in JavaScript are used to represent text and are a fundamental data type.
- * They can be created using single quotes (' '), double quotes (" "), or template literals (` `).
- */
-
-// ********** 1. Creating Strings **********
-// Description: Strings can be created in different ways.
 /*
+========================================
+ JavaScript Strings - Detailed Documentation
+========================================
+
+What is a String in JavaScript?
+--------------------------------
+A string in JavaScript is a sequence of characters used to represent text. It is one of the primitive data types and is enclosed in either single quotes (' '), double quotes (" "), or backticks (` `).
+
+Example:
+*/
+
 const str1 = "Hello, World!";
-const str2 = 'JavaScript Strings';
-const str3 = `Template Literals`;
-console.log(str1, str2, str3);
+const str2 = 'JavaScript is awesome!';
+const str3 = `This is a template literal.`;
+
+/*
+========================================
+ 1. Accessing Characters in a String
+========================================
 */
 
-// ********** 2. String Length **********
-// Description: Use `.length` property to get the length of a string.
+// charAt(index) - Returns the character at the specified index.
+console.log(str1.charAt(7)); // Output: "W"
+
+// charCodeAt(index) - Returns the Unicode of the character at the specified index.
+console.log(str1.charCodeAt(7)); // Output: 87
+
+// codePointAt(index) - Returns the Unicode code point at the specified position.
+console.log("😊".codePointAt(0)); // Output: 128522
+
 /*
-const text = "Hello";
-console.log(text.length); // Output: 5
+========================================
+ 2. String Comparison
+========================================
 */
 
-// ********** 3. Accessing Characters **********
-// Description: Use bracket notation or `.charAt()` to access characters.
+// localeCompare(compareString) - Compares two strings in the current locale.
+console.log("réservé".localeCompare("reserve")); // Output: 1 (or another positive number)
+
 /*
-console.log(text[0]);      // Output: H
-console.log(text.charAt(1)); // Output: e
+========================================
+ 3. Searching Within a String
+========================================
 */
 
-// ********** 4. Changing Case **********
-// Description: Use `.toUpperCase()` and `.toLowerCase()`.
+const text = "JavaScript is awesome!";
+
+// indexOf(searchValue) - Finds the first occurrence of a substring.
+console.log(text.indexOf("is")); // Output: 11
+
+// lastIndexOf(searchValue) - Finds the last occurrence of a substring.
+console.log(text.lastIndexOf("e")); // Output: 20
+
+// includes(searchString) - Checks if a string contains a specific substring.
+console.log(text.includes("Java")); // Output: true
+
+// startsWith(searchString) - Checks if a string starts with a specific substring.
+console.log(text.startsWith("Java")); // Output: true
+
+// endsWith(searchString) - Checks if a string ends with a specific substring.
+console.log(text.endsWith("!")); // Output: true
+
 /*
-console.log(text.toUpperCase()); // Output: HELLO
-console.log(text.toLowerCase()); // Output: hello
+========================================
+ 4. Extracting Substrings
+========================================
 */
 
-// ********** 5. Searching in Strings **********
-// Description: Methods to find substrings.
+// slice(beginIndex, endIndex) - Extracts a portion of the string.
+console.log(text.slice(0, 10)); // Output: "JavaScript"
+
+// substring(start, end) - Extracts characters between two indices.
+console.log(text.substring(4, 10)); // Output: "Script"
+
 /*
-console.log(text.indexOf("l"));      // Output: 2 (first occurrence)
-console.log(text.lastIndexOf("l")); // Output: 3 (last occurrence)
-console.log(text.includes("Hell")); // Output: true
+========================================
+ 5. Modifying and Combining Strings
+========================================
 */
 
-// ********** 6. Extracting Parts of a String **********
-// Description: Methods for substring extraction.
+// concat(...strings) - Combines two or more strings.
+console.log(str1.concat(" ", str2)); // Output: "Hello, World! JavaScript is awesome!"
+
+// replace(searchFor, replaceWith) - Replaces the first occurrence of a substring.
+console.log(str1.replace("World", "JavaScript")); // Output: "Hello, JavaScript!"
+
+// replaceAll(searchFor, replaceWith) - Replaces all occurrences of a substring.
+console.log("Hello, Hello!".replaceAll("Hello", "Hi")); // Output: "Hi, Hi!"
+
+// toUpperCase() - Converts a string to uppercase.
+console.log(str1.toUpperCase()); // Output: "HELLO, WORLD!"
+
+// toLowerCase() - Converts a string to lowercase.
+console.log(str1.toLowerCase()); // Output: "hello, world!"
+
 /*
-console.log(text.slice(0, 3));   // Output: Hel
-console.log(text.substring(0, 3)); // Output: Hel
-console.log(text.substr(1, 3));  // Output: ell (deprecated)
+========================================
+ 6. Removing Whitespace
+========================================
 */
 
-// ********** 7. Replacing Text **********
-// Description: `.replace()` and `.replaceAll()`
+const spaced = "   Hello, World!   ";
+
+// trim() - Removes whitespace from both ends.
+console.log(spaced.trim()); // Output: "Hello, World!"
+
+// trimStart() - Removes whitespace from the start.
+console.log(spaced.trimStart()); // Output: "Hello, World!   "
+
+// trimEnd() - Removes whitespace from the end.
+console.log(spaced.trimEnd()); // Output: "   Hello, World!"
+
 /*
-let message = "Hello World!";
-console.log(message.replace("World", "JavaScript")); // Output: Hello JavaScript!
-console.log(message.replaceAll("l", "x")); // Output: Hexxo Worxd!
+========================================
+ 7. Padding Strings
+========================================
 */
 
-// ********** 8. Splitting Strings **********
-// Description: Convert a string into an array.
+// padStart(targetLength, padString) - Pads the start of a string.
+console.log("5".padStart(3, "0")); // Output: "005"
+
+// padEnd(targetLength, padString) - Pads the end of a string.
+console.log("5".padEnd(3, "0")); // Output: "500"
+
 /*
-const sentence = "JavaScript is awesome";
-console.log(sentence.split(" ")); // Output: ["JavaScript", "is", "awesome"]
+========================================
+ 8. Splitting Strings
+========================================
 */
 
-// ********** 9. Trimming Strings **********
-// Description: Remove whitespace using `.trim()`, `.trimStart()`, `.trimEnd()`
+const csv = "apple,banana,grape";
+
+// split(separator) - Splits a string into an array.
+console.log(csv.split(",")); // Output: ["apple", "banana", "grape"]
+
 /*
-const spacedText = "  Hello!  ";
-console.log(spacedText.trim()); // Output: "Hello!"
-console.log(spacedText.trimStart()); // Output: "Hello!  "
-console.log(spacedText.trimEnd()); // Output: "  Hello!"
+========================================
+ 9. Repeating Strings
+========================================
 */
 
-// ********** 10. String Concatenation **********
-// Description: Use `+`, `.concat()`, or template literals.
+// repeat(count) - Repeats the string a specified number of times.
+console.log("Hello ".repeat(3)); // Output: "Hello Hello Hello "
+
 /*
-const part1 = "Hello";
-const part2 = "World";
-console.log(part1 + " " + part2); // Output: Hello World
-console.log(part1.concat(" ", part2)); // Output: Hello World
-console.log(`${part1} ${part2}`); // Output: Hello World
+========================================
+ 10. Template Literals
+========================================
 */
 
-// ********** 11. Repeat Strings **********
-// Description: Repeat a string multiple times.
-/*
-console.log("Hello ".repeat(3)); // Output: Hello Hello Hello 
-*/
-
-// ********** 12. Escaping Characters **********
-// Description: Use backslash `\` to escape characters.
-/*
-console.log("She said, \"JavaScript is fun!\""); // Output: She said, "JavaScript is fun!"
-*/
-
-// ********** 13. Template Literals **********
-// Description: Allow multi-line strings and expressions inside strings.
-/*
 const name = "John";
 const greeting = `Hello, ${name}!`;
-console.log(greeting); // Output: Hello, John!
+console.log(greeting); // Output: "Hello, John!"
+
+/*
+========================================
+ More Methods in Latest JavaScript Releases
+========================================
 */
 
-/**
- * =====================================================
- * Conclusion
- * =====================================================
- * Strings are a crucial part of JavaScript programming.
- * Understanding their methods allows for powerful text manipulation.
- */
+// matchAll(regex) - Returns an iterator of all matched substrings.
+const regex = /[aeiou]/g;
+console.log([..."JavaScript".matchAll(regex)]); // Output: Array of matched vowels
+
+// normalize(form) - Normalizes Unicode text.
+console.log("café".normalize("NFD")); // Output: "café"
+
+// at(index) - Gets the character at a given index (including negative indices).
+console.log("Hello".at(-1)); // Output: "o"
+
+/*
+========================================
+ End of Documentation
+========================================
+*/
